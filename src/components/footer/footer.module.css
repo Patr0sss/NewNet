@@ -1,0 +1,26 @@
+.footer,
+.footerContainer {
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  background-color: #151515;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  /* position: fixed;
+  bottom: 0; */
+}
+
+.footerContainer {
+  width: 94%;
+  height: 100%;
+}
+
+.footerContent {
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  text-decoration: none;
+}

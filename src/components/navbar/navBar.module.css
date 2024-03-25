@@ -1,0 +1,27 @@
+.navbar,
+.navbarContainer {
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.navbar {
+  background-color: #151515;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.navbarContainer {
+  width: 94%;
+  height: 100%;
+}
+
+.brandNameContainer {
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
