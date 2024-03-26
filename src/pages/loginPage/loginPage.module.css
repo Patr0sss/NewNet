@@ -22,14 +22,14 @@ input:active {
 }
 
 .loginPage {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 100px);
   width: 100%;
   min-height: 600px;
 }
 
 .mainContainer {
   background-color: #151515;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   width: 80%;
   height: 80%;
   /* max-height: 600px; */
@@ -47,18 +47,17 @@ input:active {
 
 .headerContainer {
   width: 90%;
-  height: 20%;
+  height: 10%;
   font-size: 1.8rem;
   font-weight: bold;
   border-bottom: 2px solid gray;
   padding-bottom: 10px;
   padding-top: 10px;
   text-align: center;
-  /* background-color: red; */
 }
 
 .formContainer {
-  height: 80%;
+  height: 90%;
   width: 90%;
   flex-direction: column;
   text-align: center;
