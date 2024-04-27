@@ -3,10 +3,11 @@ import styles from "./navBar.module.css";
 import { Link } from "react-router-dom";
 import FriendBar from "../friendBar/friendBar";
 
-function NavBar() {
-  const [isUserLoggedIn, seIsUserLoggedIn] = useState<boolean>(false);
+function NavBar({ firendList }: { firendList?: string[] }) {
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState<boolean>(false);
-  const [usersList, setUsersList] = useState([]);
+  const [searchBarData, setSearchBarData] = useState<string>("");
+
   return (
     <>
       {isSearchBarOpen ? (
@@ -29,9 +30,19 @@ function NavBar() {
             onClick={() => {
               setIsSearchBarOpen(true);
             }}
+            onChange={(e) => {
+              setSearchBarData(e.target.value);
+            }}
           ></input>
 
-          <div className={styles.navbarContent}>CONTENT</div>
+          <div className={styles.navbarContent}>
+            <Link to="/profilePage" className={styles.navbarLink}>
+              Profile Page
+            </Link>
+            <Link to="/" className={styles.navbarLink}>
+              Home Page
+            </Link>
+          </div>
           <Link
             to={isUserLoggedIn ? "/profilePage" : "/loginPage"}
             className={styles.loginButton}
@@ -42,18 +53,25 @@ function NavBar() {
       </nav>
       {isSearchBarOpen ? (
         <div className={styles.searchBarTab}>
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
-          <FriendBar />
+          {firendList
+            ?.filter(
+              (friendName) =>
+                friendName
+                  .toLowerCase()
+                  .includes(searchBarData.toLowerCase()) ||
+                searchBarData.toLowerCase().includes(friendName.toLowerCase())
+            )
+            .map((friendName) => (
+              <FriendBar friendName={friendName} />
+            ))}
+
+          {firendList?.filter(
+            (friendName) =>
+              friendName.toLowerCase().includes(searchBarData.toLowerCase()) ||
+              searchBarData.toLowerCase().includes(friendName.toLowerCase())
+          ).length === 0
+            ? "Brak Wyników"
+            : ""}
         </div>
       ) : null}
     </>

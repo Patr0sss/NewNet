@@ -8,8 +8,12 @@ function ButtonHover({
   text: string;
   customStyle?: string;
   width?: string;
-  onClick?: () => {};
+  onClick?: () => void;
 }) {
-  return <div className={styles.bn5}>{text}</div>;
+  return (
+    <div className={styles.bn5} onClick={onClick}>
+      {text}
+    </div>
+  );
 }
 export default ButtonHover;

@@ -29,6 +29,7 @@
   padding-right: 30px;
   /* width: 10%; */
   /* z-index: 15; */
+  filter: drop-shadow(0px 0px 5px yellow);
 }
 
 input,
@@ -65,7 +66,7 @@ input:active {
   width: 340px;
   height: 360px;
   z-index: 12;
-  gap: 10px;
+  gap: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
   overflow-y: scroll;
@@ -79,7 +80,7 @@ input:active {
   left: 0;
   right: 0;
   z-index: 11;
-  /* background-color: aqua; */
+  display: flex;
 }
 
 .navbarContent {
@@ -87,8 +88,22 @@ input:active {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 5%;
+  font-weight: bold;
+  /* background-color: yellow; */
 }
 
+.navbarLink {
+  text-decoration: none;
+  color: white;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+}
+
+.navbarLink:hover {
+  opacity: 0.5;
+  border-bottom: 1px solid white;
+}
 .loginButton {
   padding-top: 6px;
   padding-bottom: 6px;
@@ -102,6 +117,14 @@ input:active {
   background-color: #222222;
   border-radius: 5px;
   border: 1px solid white;
+}
+
+.loginButton:hover {
+  opacity: 0.7;
+}
+
+.loginButton:active {
+  opacity: 0.5;
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,7 @@
 body {
   color: white;
   background-color: #222222;
+  background-color: white;
   align-items: self-end;
   min-height: 700px;
 }

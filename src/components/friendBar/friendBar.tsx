@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
 import styles from "./friendBar.module.css";
 
-function FriendBar() {
+function FriendBar({ friendName }: { friendName: string }) {
   return (
-    <div className={styles.friendBar}>
+    <Link to={"/ " + friendName} className={styles.friendBar}>
       <div className={styles.friendImage}></div>
-      <div className={styles.friendName}>KOX</div>
-    </div>
+      <div className={styles.friendName}>{friendName}</div>
+    </Link>
   );
 }
 export default FriendBar;

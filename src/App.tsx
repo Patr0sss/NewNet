@@ -1,23 +1,28 @@
-import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import React from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import NavBar from "./components/navbar/navBar";
 import HomePage from "./pages/homePage/homePage";
 import LoginPage from "./pages/loginPage/loginPage";
-import Footer from "./components/footer/footer";
+import ProfilePage from "./pages/profilePage/profilePage";
+import FriendList from "./components/friendList/friendList";
+
+const FriendArray = ["Mateusz Kroplewski", "Filip Porębski", "Szymon Woźniak"];
 
 function App() {
-  // const [isUserAuthenticated, setIsUserAuthenticated] = useState(true);
   return (
     <div>
-      <React.StrictMode>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/profilePage" element={<Footer />} />
-          <Route path="/loginPage" element={<LoginPage />} />
-        </Routes>
-        <Footer />
-      </React.StrictMode>
+      {/* <React.StrictMode> */}
+      <NavBar firendList={FriendArray} />
+      {useLocation().pathname !== "/loginPage" ? (
+        <FriendList firendList={FriendArray} />
+      ) : null}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profilePage" element={<ProfilePage />} />
+        <Route path="/loginPage" element={<LoginPage />} />
+        {/* <Route path="*" element={<Navigate to="/loginPage" />} /> */}
+      </Routes>
+      {/* </React.StrictMode> */}
     </div>
   );
 }

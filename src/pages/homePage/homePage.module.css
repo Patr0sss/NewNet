@@ -86,29 +86,11 @@
   border-radius: 2px;
 }
 
-.friendList {
-  position: fixed;
-  top: 100px;
-  right: 0;
-  width: 20%;
-  height: calc(100vh - 150px);
-  border-left: 1px solid white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  font-weight: bold;
-}
-
 textarea {
   resize: none;
 }
 
 @media (max-width: 768px) {
-  .friendList {
-    display: none;
-  }
-
   .contentSide {
     width: 95%;
     margin-left: 2.5%;

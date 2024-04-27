@@ -1,6 +1,7 @@
 body {
   color: white;
   background-color: #222222;
+  overflow-y: scroll;
 }
 
 input,
@@ -29,20 +30,19 @@ input:active {
 
 .mainContainer {
   background-color: #151515;
-  /* margin-top: 50px; */
   width: 80%;
   height: 80%;
-  /* max-height: 600px; */
   padding-top: 10px;
   border-radius: 10px;
   color: gray;
   max-width: 600px;
   flex-direction: column;
-  position: relative;
 }
 
 .mainContainer:hover {
-  box-shadow: -4px -4px 6px #00000026;
+  /* box-shadow: -4px -4px 6px #00000026; */
+  /* box-shadow: 0px 0px 20px #00000026; */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
 }
 
 .headerContainer {
@@ -63,6 +63,8 @@ input:active {
   text-align: center;
   gap: 30px;
   font-weight: bold;
+  justify-content: flex-start;
+  margin-top: 100px;
 }
 
 .inputClass,
@@ -80,34 +82,31 @@ input:active {
 .inputClass:focus {
   border: 1px solid #222222;
 }
-/* .loginButton,
-.registerButton {
+
+.actionChanger {
+  padding: 5px;
+  padding-inline: 10px;
   border-radius: 5px;
-  width: 40%;
-  padding: 20px;
+  cursor: pointer;
+}
+.actionChanger:hover {
+  background-color: rgb(120, 120, 120);
   color: white;
-  background-color: lightgray;
 }
 
-.registerButton:hover,
-.loginButton:hover {
-  background-color: white;
-  color: lightgray;
+.sideBar {
+  background-color: rgb(120, 120, 120);
+  height: 60%;
+  width: 20px;
+  border-radius: 0px 10px 10px 0;
 }
-.loginButton:hover {
-  transform: rotate(2deg);
-}
-.registerButton:hover {
-  transform: rotate(-2deg);
-}
-
-.loginButton:active,
-.registerButton:active {
-  transform: scale(0.95);
-} */
 
 @media (max-width: 768px) {
   .headerContainer {
     font-size: 1.2rem;
+  }
+
+  .formContainer {
+    margin-top: 50px;
   }
 }
