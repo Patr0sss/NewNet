@@ -6,26 +6,8 @@ import Post from "../../components/post/post";
 import PostCreator from "../../components/postCreator/postCreator";
 
 function ProfilePage({ user }: { user: string }) {
-  const [postMessage, setPostMessage] = useState<string>("");
-  const [isPostInputOpen, setIsPostInputOpen] = useState<boolean>(false);
   const [postsList, setPostsList] = useState<string[]>([]);
   const [postErrorMessage, setpostErrorMessage] = useState<string>("");
-
-  const handlePostButton = () => {
-    if (postMessage.replace(/\s/g, "").length > 0) {
-      setPostsList([...postsList, postMessage]);
-      setPostMessage("");
-
-      const postTextArea = document.getElementById(
-        "postTextArea"
-      ) as HTMLTextAreaElement;
-      postTextArea.value = "";
-      setpostErrorMessage("");
-      setIsPostInputOpen((previous) => !previous);
-    } else {
-      setpostErrorMessage("Type Something !");
-    }
-  };
 
   const handleDeletePost = (index: number) => {
     const updatedPostsList = [...postsList];
@@ -44,19 +26,6 @@ function ProfilePage({ user }: { user: string }) {
       console.log(error);
     }
   };
-
-  // const handleCheckUser = async () => {
-  //   try {
-  //     const res = await fetch("http://localhost:3000/checkUser", {
-  //       method: "GET",
-  //       credentials: "include",
-  //     });
-  //     const data = await res.json();
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   useEffect(() => {
     if (postErrorMessage !== "") {
@@ -87,31 +56,7 @@ function ProfilePage({ user }: { user: string }) {
             </div>
           </div>
         </div>
-
-        {/* <div className={styles.postCreateBar}>
-          <textarea
-            id="postTextArea"
-            placeholder="Write Something ..."
-            required
-            className={styles.postInput}
-            style={{ height: isPostInputOpen ? "200px" : "50px" }}
-            onChange={(e) => {
-              setPostMessage(e.target.value);
-            }}
-            onClick={() => {
-              setIsPostInputOpen((previous) => !previous);
-            }}
-          ></textarea>
-          <div
-            className={styles.postButton}
-            onClick={() => {
-              handlePostButton();
-            }}
-          >
-            Post
-          </div>
-        </div> */}
-        <PostCreator />
+        <PostCreator _id={JSON.stringify(user)} />
         <div className={styles.postErrorMessage}>{postErrorMessage}</div>
         {postsList.map((postMessage, index) => (
           <Post

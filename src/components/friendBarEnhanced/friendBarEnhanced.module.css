@@ -27,24 +27,26 @@
 }
 
 .friendImage {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
   background-color: white;
   border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .friendName {
   height: 90%;
-  width: 75%;
-  width: calc(90% - 25px);
   display: flex;
   align-items: center;
   justify-content: left;
   text-decoration: none;
-  /* color: white; */
   text-wrap: nowrap;
-  font-size: 10px;
+  font-size: 14px;
+  overflow-x: hidden;
 }
 
 .friendInfoSide {
@@ -60,7 +62,9 @@
   height: 100%;
   margin-right: 10px;
 }
-
+.friendInfoSide {
+  width: calc(100% - 22px);
+}
 .actionWithFriend {
   display: flex;
   flex-direction: column;
@@ -81,7 +85,6 @@
   justify-content: center;
   padding-top: 5px;
   padding-bottom: 5px;
-  /* border-bottom: 1px solid #555555; */
   background-color: darkgray;
   color: white;
   text-decoration: none;

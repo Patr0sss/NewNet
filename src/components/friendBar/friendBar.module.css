@@ -22,10 +22,14 @@
 }
 
 .friendImage {
-  height: 25px;
-  width: 25px;
+  width: 30px;
+  aspect-ratio: 1/1;
   border-radius: 50%;
-  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 1px solid gray;
 }
 
 .friendName {
@@ -37,4 +41,7 @@
   justify-content: left;
   text-decoration: none;
   text-wrap: nowrap;
+  color: gray;
+  font-size: 14px;
+  overflow-x: hidden;
 }

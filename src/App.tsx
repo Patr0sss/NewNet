@@ -8,7 +8,12 @@ import FriendList from "./components/friendList/friendList";
 import ActionColumn from "./components/actionColumn/actionColumn";
 import { useCookies } from "react-cookie";
 
-const FriendArray = ["Mateusz Kroplewski", "Filip Porębski", "Szymon Woźniak"];
+const FriendArray = [
+  "Mateusz Kroplewski",
+  "Filip Porębski",
+  "Szymon Woźniak",
+  "kkiejno@gmail.com",
+];
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -23,7 +28,7 @@ function App() {
           credentials: "include",
         });
         const data = await res.json();
-        setUser(data.user.email);
+        setUser(data.user._id);
       } catch (error) {
         console.log(error);
       }

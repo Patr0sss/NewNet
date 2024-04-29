@@ -4,9 +4,7 @@ import styles from "./homePage.module.css";
 function HomePage() {
   return (
     <div className={styles.homePage}>
-      <div className={styles.contentSide}>
-        <PostCreator />
-      </div>
+      <div className={styles.contentSide}>{/* <PostCreator /> */}</div>
     </div>
   );
 }

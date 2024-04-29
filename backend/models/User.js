@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const { isEmail } = require("validator");
 const bcrypt = require("bcrypt");
+const { timeStamp } = require("console");
+// const Post = require("./Post");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -15,6 +17,22 @@ const userSchema = new mongoose.Schema({
     required: [true, "Please enter a password"],
     minlength: [6, "Minimum password length is 6 characters"],
   },
+  // posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
+  posts: [
+    {
+      // email: {
+      //   type: String,
+      //   required: true,
+      // },
+      content: {
+        type: String,
+        required: [true, "Please enter content for the post"],
+      },
+    },
+    {
+      timestamps: true,
+    },
+  ],
 });
 
 // fire a function before doc saved to db
