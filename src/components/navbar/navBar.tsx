@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./navBar.module.css";
 import { Link } from "react-router-dom";
 import FriendBar from "../friendBar/friendBar";
 
-function NavBar({ firendList }: { firendList?: string[] }) {
+function NavBar({ firendList, user }: { firendList?: string[]; user: string }) {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState<boolean>(false);
   const [searchBarData, setSearchBarData] = useState<string>("");
@@ -45,9 +45,9 @@ function NavBar({ firendList }: { firendList?: string[] }) {
           </div>
           <Link
             to={isUserLoggedIn ? "/profilePage" : "/loginPage"}
-            className={styles.loginButton}
+            className={user ? styles.userLogged : styles.loginButton}
           >
-            {isUserLoggedIn ? "UserName" : "Login"}
+            {user ? user : "Login"}
           </Link>
         </div>
       </nav>
@@ -61,8 +61,20 @@ function NavBar({ firendList }: { firendList?: string[] }) {
                   .includes(searchBarData.toLowerCase()) ||
                 searchBarData.toLowerCase().includes(friendName.toLowerCase())
             )
-            .map((friendName) => (
-              <FriendBar friendName={friendName} />
+            .map((friendName, index) => (
+              <div
+                key={index}
+                style={{
+                  width: "90%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+                onClick={() => {
+                  setIsSearchBarOpen(false);
+                }}
+              >
+                <FriendBar friendName={friendName} />
+              </div>
             ))}
 
           {firendList?.filter(

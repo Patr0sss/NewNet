@@ -1,6 +1,6 @@
 body {
   color: white;
-  background-color: #222222;
+  background-color: #f4f4f4;
   overflow-y: scroll;
 }
 
@@ -23,37 +23,39 @@ input:active {
 }
 
 .loginPage {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 50px);
   width: 100%;
-  min-height: 600px;
+  min-height: 500px;
 }
 
 .mainContainer {
   background-color: #151515;
-  width: 80%;
-  height: 80%;
-  padding-top: 10px;
+  background-color: white;
+  width: 360px;
+  /* height: 80%; */
+  height: 400px;
+  padding: 10px;
   border-radius: 10px;
   color: gray;
   max-width: 600px;
   flex-direction: column;
+  box-shadow: 0px 0px 2px gray;
 }
 
-.mainContainer:hover {
-  /* box-shadow: -4px -4px 6px #00000026; */
-  /* box-shadow: 0px 0px 20px #00000026; */
+/* .mainContainer:hover {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
-}
+} */
 
 .headerContainer {
   width: 90%;
-  height: 10%;
-  font-size: 1.8rem;
+  /* height: 10%; */
+  font-size: 24px;
   font-weight: bold;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid gold;
   padding-bottom: 10px;
   padding-top: 10px;
   text-align: center;
+  color: gold;
 }
 
 .formContainer {
@@ -61,26 +63,47 @@ input:active {
   width: 90%;
   flex-direction: column;
   text-align: center;
-  gap: 30px;
+  gap: 20px;
   font-weight: bold;
   justify-content: flex-start;
-  margin-top: 100px;
+  justify-content: center;
+  margin-top: 40px;
+  /* background-color: red; */
 }
 
+.signUpButton {
+  /* background-color: #222222; */
+  background-color: rgb(245, 245, 177);
+  border: 2px solid gold;
+  outline: none;
+  padding: 6px;
+  width: 180px;
+  color: gray;
+  font-weight: bold;
+  border-radius: 10px;
+  /* border: none; */
+}
+
+.signUpButton:hover {
+  background-color: gold;
+  color: white;
+}
 .inputClass,
 .inputClass:active {
-  width: 40%;
-  height: 50px;
+  width: 60%;
+  height: 35px;
   border-radius: 5px;
   padding-inline: 20px;
-  background-color: #111;
+  /* background-color: rgb(250, 230, 100); */
   font-weight: bold;
+  border: 1px solid gold;
   color: gray;
-  border: 1px solid #111;
 }
 
 .inputClass:focus {
-  border: 1px solid #222222;
+  /* border: 1px solid #222222; */
+  background-color: rgb(255, 255, 200);
+  /* color: white; */
 }
 
 .actionChanger {
@@ -88,18 +111,20 @@ input:active {
   padding-inline: 10px;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 20px;
+  color: gold;
 }
 .actionChanger:hover {
-  background-color: rgb(120, 120, 120);
+  background-color: gold;
   color: white;
 }
 
-.sideBar {
-  background-color: rgb(120, 120, 120);
-  height: 60%;
+/* .sideBar {
+  background-color: rgb(250, 230, 100);
+  height: 300px;
   width: 20px;
   border-radius: 0px 10px 10px 0;
-}
+} */
 
 @media (max-width: 768px) {
   .headerContainer {

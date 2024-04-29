@@ -13,7 +13,7 @@ function FriendBarEnhanced({ friendName }: { friendName: string }) {
           setIsFriendBarOpen((previous) => !previous);
         }}
         style={{
-          backgroundColor: isFriendBarOpen ? "rgb(120,120,120)" : "",
+          backgroundColor: isFriendBarOpen ? "rgb(229, 228, 226)" : "",
           opacity: isFriendBarOpen ? "0.8" : "auto",
           borderLeft: isFriendBarOpen ? "1px solid white" : "",
           borderRight: isFriendBarOpen ? "1px solid white" : "",

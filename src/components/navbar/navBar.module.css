@@ -3,16 +3,20 @@
   display: flex;
   align-items: center;
   /* z-index: 10; */
+  background-color: white;
 }
 
 .navbar {
-  background-color: #151515;
+  /* background-color: #151515; */
+  background-color: white;
   justify-content: center;
   height: 50px;
   width: 100%;
   position: sticky;
   top: 0;
-  box-shadow: 0px 0px 2px rgb(11, 11, 24);
+  /* box-shadow: 0px 0px 2px rgb(11, 11, 24); */
+  box-shadow: 0px 0px 2px gray;
+  z-index: 10;
 }
 
 .navbarContainer {
@@ -30,6 +34,7 @@
   /* width: 10%; */
   /* z-index: 15; */
   filter: drop-shadow(0px 0px 5px yellow);
+  color: gold;
 }
 
 input,
@@ -42,12 +47,14 @@ input:active {
 }
 
 .searchBar {
-  width: 10%;
-  min-width: 160px;
+  width: 200px;
+  /* border: 1px solid black; */
+  background-color: rgb(240, 240, 240);
   padding-left: 10px;
   height: 50%;
-  border-radius: 5px;
+  border-radius: 10px;
   font-weight: bold;
+  font-size: 10px;
   z-index: 12;
 }
 
@@ -58,18 +65,20 @@ input:active {
   align-items: center;
   flex-direction: column;
   background-color: #151515;
+  background-color: white;
   border: 1px solid white;
   border-top: none;
   border-radius: 0px 0px 5px 5px;
-  left: 3%;
+  left: 13%;
   top: 50px;
-  width: 340px;
-  height: 360px;
+  width: 230px;
+  height: 250px;
   z-index: 12;
   gap: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  box-shadow: 0px -1px 0px white, 0px 0px 1px gray;
 }
 
 .fixedMenuDown {
@@ -84,18 +93,22 @@ input:active {
 }
 
 .navbarContent {
-  width: 70%;
+  width: 65%;
+  padding-left: 5%;
   display: flex;
   justify-content: center;
+  justify-content: left;
   align-items: center;
   gap: 5%;
   font-weight: bold;
+  font-size: 12px;
   /* background-color: yellow; */
 }
 
 .navbarLink {
   text-decoration: none;
-  color: white;
+  /* color: white; */
+  color: gray;
   padding-bottom: 3px;
   border-bottom: 1px solid transparent;
 }
@@ -105,33 +118,41 @@ input:active {
   border-bottom: 1px solid white;
 }
 .loginButton {
-  padding-top: 6px;
-  padding-bottom: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 10%;
   color: white;
-  font-weight: bold;
   text-decoration: none;
-  background-color: #222222;
+  color: gold;
   border-radius: 5px;
-  border: 1px solid white;
+  height: 30px;
+  font-weight: bold;
 }
 
 .loginButton:hover {
   opacity: 0.7;
+  background-color: gold;
+  color: white;
 }
 
 .loginButton:active {
   opacity: 0.5;
 }
 
+.userLogged {
+  color: gray;
+  text-decoration: none;
+  font-weight: bold;
+}
 @media (max-width: 768px) {
   .loginButton {
     display: none;
   }
 
+  .userLogged {
+    display: none;
+  }
   .navbarContent {
     display: none;
   }
@@ -141,5 +162,6 @@ input:active {
   } */
   .searchBar {
     width: 60%;
+    max-width: 300px;
   }
 }

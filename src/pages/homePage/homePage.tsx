@@ -1,11 +1,11 @@
+import PostCreator from "../../components/postCreator/postCreator";
 import styles from "./homePage.module.css";
 
 function HomePage() {
   return (
     <div className={styles.homePage}>
       <div className={styles.contentSide}>
-        Home Page
-        <input type="date" />
+        <PostCreator />
       </div>
     </div>
   );

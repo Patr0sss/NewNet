@@ -1,14 +1,14 @@
 import styles from "./profilePage.module.css";
-import backgroundImage from "../../defaultPictures/userBackgroundPicture.jpg";
-import profileImage from "../../defaultPictures/userProfilePicture.png";
+import backgroundImage from "../../defaultPictures/userBackgroundPicture2.jpg";
+import profileImage from "../../defaultPictures/userProfilePicture2.png";
 import { useEffect, useState } from "react";
 import Post from "../../components/post/post";
+import PostCreator from "../../components/postCreator/postCreator";
 
-function ProfilePage() {
+function ProfilePage({ user }: { user: string }) {
   const [postMessage, setPostMessage] = useState<string>("");
   const [isPostInputOpen, setIsPostInputOpen] = useState<boolean>(false);
   const [postsList, setPostsList] = useState<string[]>([]);
-  const [userName, setUserName] = useState<string>("Krystian Kiejno");
   const [postErrorMessage, setpostErrorMessage] = useState<string>("");
 
   const handlePostButton = () => {
@@ -33,6 +33,31 @@ function ProfilePage() {
     setPostsList(updatedPostsList);
   };
 
+  const handleLogout = async (e: React.FormEvent) => {
+    try {
+      await fetch("http://localhost:3000/logout", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // const handleCheckUser = async () => {
+  //   try {
+  //     const res = await fetch("http://localhost:3000/checkUser", {
+  //       method: "GET",
+  //       credentials: "include",
+  //     });
+  //     const data = await res.json();
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   useEffect(() => {
     if (postErrorMessage !== "") {
       setTimeout(() => {
@@ -55,16 +80,21 @@ function ProfilePage() {
             src={profileImage}
             alt="Profile"
           ></img>
-          <div className={styles.userName}>{userName}</div>
+          <div className={styles.bottomBar}>
+            <div className={styles.userName}>{user}</div>
+            <div onClick={handleLogout} className={styles.logoutButton}>
+              Logout
+            </div>
+          </div>
         </div>
 
-        <div className={styles.postCreateBar}>
+        {/* <div className={styles.postCreateBar}>
           <textarea
             id="postTextArea"
             placeholder="Write Something ..."
             required
             className={styles.postInput}
-            style={{ height: isPostInputOpen ? "250px" : "50px" }}
+            style={{ height: isPostInputOpen ? "200px" : "50px" }}
             onChange={(e) => {
               setPostMessage(e.target.value);
             }}
@@ -80,11 +110,12 @@ function ProfilePage() {
           >
             Post
           </div>
-        </div>
+        </div> */}
+        <PostCreator />
         <div className={styles.postErrorMessage}>{postErrorMessage}</div>
         {postsList.map((postMessage, index) => (
           <Post
-            userName={userName}
+            userName={user}
             postMessage={postMessage}
             onDelete={() => handleDeletePost(index)}
             comments={["1 komentarz", "xD", "dobry content"]}

@@ -3,28 +3,28 @@ export default function ArrowDown() {
     <svg
       viewBox="0 -4.5 20 20"
       version="1.1"
-      fill="#ffffff"
+      fill="rgb(128,128,128)"
       transform="matrix(1, 0, 0, -1, 0, 0)"
-      width="20px"
+      width="12px"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></g>
       <g id="SVGRepo_iconCarrier">
         <g
           id="Page-1"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           <g
             id="Dribbble-Light-Preview"
             transform="translate(-260.000000, -6684.000000)"
-            fill="#ffffff"
+            fill="rgb(128,128,128)"
           >
             <g id="icons" transform="translate(56.000000, 160.000000)">
               <path

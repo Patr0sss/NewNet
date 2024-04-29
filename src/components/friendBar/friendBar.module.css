@@ -1,34 +1,31 @@
 .friendBar {
   width: 90%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #222222;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 10px;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border-top: 1px solid white; */
-  /* border-bottom: 1px solid white; */
-  border-radius: 4px;
+  border-bottom: 1px solid lightgray;
   gap: 10px;
   text-decoration: none;
+  color: rgb(37, 37, 37);
 }
 
 .friendBar:hover {
-  border-radius: 4px;
-
-  /* background-color: #111111; */
-  /* border-top: 1px solid transparent; */
-  /* border-bottom: 1px solid transparent; */
+  border-radius: 10px;
   opacity: 0.8;
   border-right: 1px solid white;
   border-left: 1px solid white;
+  background-color: lightgray;
 }
 
 .friendImage {
   height: 25px;
   width: 25px;
   border-radius: 50%;
-  background-color: white;
+  border: 1px solid black;
 }
 
 .friendName {
@@ -39,6 +36,5 @@
   align-items: center;
   justify-content: left;
   text-decoration: none;
-  color: white;
   text-wrap: nowrap;
 }

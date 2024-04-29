@@ -1,0 +1,16 @@
+.actionBar {
+  color: gray;
+  width: 84%;
+  padding-inline: 2%;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.actionBar:hover {
+  background-color: lightgray;
+  color: white;
+}

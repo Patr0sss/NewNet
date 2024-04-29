@@ -8,7 +8,7 @@ export default function FriendList({ firendList }: { firendList?: string[] }) {
   return (
     <div className={styles.friendList}>
       <div className={styles.header}>
-        Friends
+        {/* Friends */}
         <input
           className={styles.headerInput}
           placeholder="Find a Friend ..."
@@ -24,8 +24,8 @@ export default function FriendList({ firendList }: { firendList?: string[] }) {
               friendName.toLowerCase().includes(searchBarData.toLowerCase()) ||
               searchBarData.toLowerCase().includes(friendName.toLowerCase())
           )
-          .map((friendName) => (
-            <FriendBarEnhanced friendName={friendName} />
+          .map((friendName, index) => (
+            <FriendBarEnhanced friendName={friendName} key={index} />
           ))}
         {firendList?.filter(
           (friendName) =>
