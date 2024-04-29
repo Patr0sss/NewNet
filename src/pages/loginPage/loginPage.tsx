@@ -54,7 +54,6 @@ function LoginPage() {
         credentials: "include",
       });
       const data = await res.json();
-      console.log(data);
       if (data.user) {
         navigate("/");
       }

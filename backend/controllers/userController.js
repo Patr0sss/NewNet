@@ -39,7 +39,20 @@ const getPosts_GET = async (req, res) => {
   }
 };
 
+const users_GET = async (req, res) => {
+  try {
+    const users = await User.find();
+
+    if (!users) {
+      return res.status(404).json({ message: "Brak użytkowników" });
+    }
+    res.json(users);
+  } catch (err) {
+    res.status(404).json({ message: "Błąd Serwera" });
+  }
+};
 module.exports = {
   createPost_POST,
   getPosts_GET,
+  users_GET,
 };

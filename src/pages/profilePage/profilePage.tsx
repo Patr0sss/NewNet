@@ -4,8 +4,9 @@ import profileImage from "../../defaultPictures/userProfilePicture2.png";
 import { useEffect, useState } from "react";
 import Post from "../../components/post/post";
 import PostCreator from "../../components/postCreator/postCreator";
+import { User } from "../../types";
 
-function ProfilePage({ user }: { user: string }) {
+function ProfilePage({ user }: { user: User }) {
   const [postsList, setPostsList] = useState<string[]>([]);
   const [postErrorMessage, setpostErrorMessage] = useState<string>("");
 
@@ -50,17 +51,17 @@ function ProfilePage({ user }: { user: string }) {
             alt="Profile"
           ></img>
           <div className={styles.bottomBar}>
-            <div className={styles.userName}>{user}</div>
+            <div className={styles.userName}>{user.email}</div>
             <div onClick={handleLogout} className={styles.logoutButton}>
               Logout
             </div>
           </div>
         </div>
-        <PostCreator _id={JSON.stringify(user)} />
+        <PostCreator _id={JSON.stringify(user._id)} />
         <div className={styles.postErrorMessage}>{postErrorMessage}</div>
         {postsList.map((postMessage, index) => (
           <Post
-            userName={user}
+            userName={user.email}
             postMessage={postMessage}
             onDelete={() => handleDeletePost(index)}
             comments={["1 komentarz", "xD", "dobry content"]}

@@ -7,6 +7,7 @@ import ProfilePage from "./pages/profilePage/profilePage";
 import FriendList from "./components/friendList/friendList";
 import ActionColumn from "./components/actionColumn/actionColumn";
 import { useCookies } from "react-cookie";
+import { User } from "./types";
 
 const FriendArray = [
   "Mateusz Kroplewski",
@@ -18,7 +19,13 @@ const FriendArray = [
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [cookies] = useCookies(["jwt"]);
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState<User>({
+    _id: "",
+    email: "",
+    password: "",
+    posts: [],
+  });
+  const [usersList, setUsersList] = useState<User[]>([]);
 
   const handleCheckUser = async () => {
     if (cookies.jwt) {
@@ -28,16 +35,34 @@ function App() {
           credentials: "include",
         });
         const data = await res.json();
-        setUser(data.user._id);
+        setUser(data.user);
       } catch (error) {
         console.log(error);
       }
     }
   };
 
+  const fetchUsers = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/users", {
+        method: "GET",
+        credentials: "include",
+      });
+      const data = await res.json();
+      setUsersList(data);
+      console.log(usersList);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     handleCheckUser();
   }, [cookies.jwt]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   useEffect(() => {
     const token = cookies.jwt;
@@ -51,12 +76,17 @@ function App() {
   return (
     <div>
       {useLocation().pathname !== "/loginPage" ? (
-        <NavBar firendList={FriendArray} user={user} />
+        <NavBar
+          firendList={usersList.filter((userr) => userr._id !== user._id)}
+          user={user}
+        />
       ) : null}
 
       {isAuthenticated ? (
         <>
-          <FriendList firendList={FriendArray} />
+          <FriendList
+            firendList={usersList.filter((userr) => userr._id !== user._id)}
+          />
           <ActionColumn />
         </>
       ) : null}
@@ -64,7 +94,11 @@ function App() {
         <Route
           path="/"
           element={
-            isAuthenticated ? <HomePage /> : <Navigate to="/loginPage" />
+            isAuthenticated ? (
+              <HomePage usersList={usersList} />
+            ) : (
+              <Navigate to="/loginPage" />
+            )
           }
         />
         <Route

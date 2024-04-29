@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
-const userPostRoutes = require("./routes/userPostRoutes");
+const userRoutes = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const { requireAuth } = require("./middleware/authMiddleware");
@@ -30,4 +30,4 @@ mongoose
 // routes
 app.get("/", (req, res) => res.send("NewNet API"));
 app.use("/", authRoutes);
-app.use("/", requireAuth, userPostRoutes);
+app.use("/", requireAuth, userRoutes);

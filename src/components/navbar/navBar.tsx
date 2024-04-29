@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import styles from "./navBar.module.css";
 import { Link } from "react-router-dom";
 import FriendBar from "../friendBar/friendBar";
+import { User } from "../../types";
 
-function NavBar({ firendList, user }: { firendList?: string[]; user: string }) {
+function NavBar({ firendList, user }: { firendList?: User[]; user: User }) {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState<boolean>(false);
   const [searchBarData, setSearchBarData] = useState<string>("");
@@ -47,7 +48,7 @@ function NavBar({ firendList, user }: { firendList?: string[]; user: string }) {
             to={isUserLoggedIn ? "/profilePage" : "/loginPage"}
             className={user ? styles.userLogged : styles.loginButton}
           >
-            {user ? user : "Login"}
+            {user ? user.email : "Login"}
           </Link>
         </div>
       </nav>
@@ -56,10 +57,12 @@ function NavBar({ firendList, user }: { firendList?: string[]; user: string }) {
           {firendList
             ?.filter(
               (friendName) =>
-                friendName
+                friendName.email
                   .toLowerCase()
                   .includes(searchBarData.toLowerCase()) ||
-                searchBarData.toLowerCase().includes(friendName.toLowerCase())
+                searchBarData
+                  .toLowerCase()
+                  .includes(friendName.email.toLowerCase())
             )
             .map((friendName, index) => (
               <div
@@ -73,14 +76,18 @@ function NavBar({ firendList, user }: { firendList?: string[]; user: string }) {
                   setIsSearchBarOpen(false);
                 }}
               >
-                <FriendBar friendName={friendName} />
+                <FriendBar friendName={friendName.email} />
               </div>
             ))}
 
           {firendList?.filter(
             (friendName) =>
-              friendName.toLowerCase().includes(searchBarData.toLowerCase()) ||
-              searchBarData.toLowerCase().includes(friendName.toLowerCase())
+              friendName.email
+                .toLowerCase()
+                .includes(searchBarData.toLowerCase()) ||
+              searchBarData
+                .toLowerCase()
+                .includes(friendName.email.toLowerCase())
           ).length === 0
             ? "Brak Wyników"
             : ""}

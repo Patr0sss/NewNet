@@ -7,8 +7,6 @@ export default function PostCreator({ _id }: { _id: string }) {
   const [postContent, setPostContent] = useState<string>("");
 
   const createPost = async () => {
-    console.log(`http://localhost:3000/users/${_id}/posts`);
-    // if (postContent.length > 1) {
     const id = _id.replace(/"/g, "");
     try {
       await fetch(
@@ -31,7 +29,6 @@ export default function PostCreator({ _id }: { _id: string }) {
     } catch (error) {
       console.error("Błąd podczas dodawania posta:", error);
     }
-    // }
   };
 
   return (
